@@ -1,0 +1,41 @@
+{%extends 'template.html'%}
+		{%block title%}
+		TITLE
+		{%endblock%}
+		<meta charset="utf-8">
+
+		{%block style%}
+		{%endblock%}
+
+		{%block body%} <!--static-->
+		<form method="POST" name="frm"> <!--method: GET/POST && POST.security-->
+			<input type="text" name="id" id="id">
+			<input type="password" name="password" id="password">
+			<input type="button" onclick="submit_1()" value="submit">
+		</form>
+		{%endblock%}
+
+		{%block script%}
+		<script> //dynamic
+			function submit_1()
+			{
+				var ID=document.getElementById('id').value;
+				var PW=document.getElementById('password').value;
+				var IDOK=0;
+				var PWOK=0;
+
+				if(ID.length < 4 || ID.length > 6)
+					alert('ID not proper in length');
+				else
+					IDOK = 1;
+
+				if(PW.length < 4 || ID.length > 6)
+					alert('PW not proper in length');
+				else
+					PWOK = 1;
+
+				if (IDOK == 1 && PWOK == 1)
+					document.frm.submit();
+			}
+		</script>
+		{%endblock%}
